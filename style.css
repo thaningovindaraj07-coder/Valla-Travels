@@ -1,6 +1,48 @@
 html {
   scroll-behavior: smooth;
 }
+
+img {
+  content-visibility: auto;
+}
+
+@media (max-width: 768px) {
+  .glass,
+  .glass-light {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.18);
+  }
+  [class*="blur-3xl"],
+  [class*="blur-2xl"] {
+    filter: none !important;
+    opacity: 0 !important;
+  }
+  .grain::before {
+    display: none !important;
+  }
+  .animate-float,
+  .animate-float-slow,
+  .animate-bounce,
+  .animate-ping,
+  .animate-pulse {
+    animation: none !important;
+  }
+  .reveal {
+    transition-duration: 0.45s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
 body {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   color: #3f2f23;

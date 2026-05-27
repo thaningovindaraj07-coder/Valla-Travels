@@ -9,18 +9,18 @@
     <link rel="icon" type="image/webp" sizes="512x512" href="/img/logo.webp" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.webp" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/background.webp"
+      fetchpriority="high"
+    />
+    <link rel="preload" as="image" href="/img/logo.webp" />
     <meta
       name="description"
       content="Valla Travels — premium taxi & travel services across Tamil Nadu. Outstation trips, airport transfers, local rides, corporate travel. Book reliable cabs 24/7."
     />
     <meta name="theme-color" content="#5A4535" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
 
     <!-- Meta Tags -->
     <meta property="og:title" content="Valla Travels" />
@@ -28,12 +28,13 @@
       property="og:description"
       content="Valla Travels — premium taxi & travel services across Tamil Nadu. Outstation trips, airport transfers, local rides, corporate travel. Book reliable cabs 24/7."
     />
-    <meta property="og:image" content="/img/Meta-Image.webp" />
+    <meta property="og:image" content="/img/meta-img.jpg" />
     <meta property="og:url" content="https://vallatravels.in/" />
     <meta property="og:site_name" content="vallatravels.in" />
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script>
+      // Tailwind config must be defined BEFORE the tailwind script loads.
+      window.tailwind = window.tailwind || {};
       tailwind.config = {
         theme: {
           extend: {
@@ -79,17 +80,33 @@
         },
       };
     </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+      defer
+    ></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&family=Noto+Sans:wght@400&display=swap"
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      />
+    </noscript>
   </head>
   <body class="bg-brand-mist text-brand-dark">
     <!-- NAVBAR -->
@@ -1857,16 +1874,8 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
               title="Valla Travels — Chennai"
               class="w-full h-full min-h-[400px]"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
